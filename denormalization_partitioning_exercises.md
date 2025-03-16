@@ -152,7 +152,8 @@ FROM information_schema.partitions
 WHERE TABLE_SCHEMA = DATABASE();
 ```
 
-It is possible to see **Query Stats in MySQL Workbench** more here: [](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html). Check stats for both versions of the Sales table, with and without the partitions.
+It is possible to see **Query Stats in MySQL Workbench**:[MySQL Workbench Manual](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html). Check query stats for both versions of the Sales table, with and without the partitions.
+
 ### **📌 Discussion Questions**
 - How does **partitioning** improve query speed?
 - Why does MySQL **not allow foreign keys** in partitioned tables?
