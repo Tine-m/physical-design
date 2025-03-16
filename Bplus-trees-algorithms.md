@@ -115,7 +115,6 @@ After:
 ```
 📌 **The tree height shrinks.**
 
----
 
 ---
 
