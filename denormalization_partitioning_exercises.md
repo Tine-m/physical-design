@@ -1,6 +1,6 @@
-# **📌 Exercises: Practicing Denormalization and Partitioning**
+# **Exercises: Practicing Denormalization and Partitioning**
 
-## **📌 Scenario: Global Online Store**
+## **Scenario: Global Online Store**
 
 You are designing a **database for an e-commerce platform** that handles **millions of transactions per month** across different regions.
 
@@ -13,7 +13,7 @@ The system includes:
 
 ---
 
-## **📝 Exercise 1: Denormalizing Total Sales per Order**
+## **Exercise 1: Denormalizing Total Sales per Order**
 
 ### **🎯 Problem Statement**
 Currently, the database stores each **order and its items separately**. The total order value must be computed **using a `SUM()` query**, which slows down reporting.
@@ -135,8 +135,12 @@ PARTITION BY RANGE (YEAR(sale_date)) (
     PARTITION p2023 VALUES LESS THAN (2024)
 );
 ```
-You can use these [test data](sales_list_partitioned.csv)
+You can use these [test data](sales_partitioned.csv) to insert into the `Sales` table.
 
+### **✅ Query Example (Efficient Query on Partitioned Table)**
+```sql
+SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
+```
 ### **✅ Query Example (Efficient Query on Partitioned Table)**
 ```sql
 SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
@@ -180,6 +184,8 @@ PARTITION BY LIST COLUMNS (region) (
     PARTITION pASIA VALUES IN ('Asia')
 );
 ```
+
+You can use these [test data](sales_list_partitioned.csv) to insert into the `Sales` table.
 
 ### **✅ Query Example (Efficient Regional Query)**
 ```sql
