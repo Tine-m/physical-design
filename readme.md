@@ -1,4 +1,4 @@
 # **Topics**
 
 - [Physical Database Design](Physical-database-design.md)
-- Optimizing the Database
+- [Optimizing the Database](denormalization.md)
