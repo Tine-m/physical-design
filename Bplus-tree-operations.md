@@ -19,7 +19,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 (Leaf Node)
 ```
 
-![Step 1: Insert 10](img/image_1.png)
+
 
 ---
 ### **📌 Step 2: Insert 20, 30**
