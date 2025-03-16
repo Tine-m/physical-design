@@ -1,6 +1,6 @@
 ## **📌 Query Optimization Exercises**
 
-### **🔹 Exercise 1: Optimizing a Subquery into a Join**
+### **Exercise 1: Optimizing a Subquery into a Join**
 
 #### **Task:**  
 The following query is slow because it uses a subquery. Rewrite it as a **JOIN** to improve performance.
@@ -18,7 +18,7 @@ WHERE total_amount > 100;
 
 ---
 
-### **🔹 Exercise 2: Optimizing a JOIN by Using an Index**
+### **Exercise 2: Optimizing a JOIN by Using an Index**
 
 #### **Task:**  
 The following query is slow because the **join condition is missing an index**.  
@@ -39,7 +39,7 @@ WHERE o.order_date > '2023-01-01';
 
 ---
 
-### **🔹 Exercise 3: Identifying and Fixing the N+1 Query Problem**
+### **Exercise 3: Identifying and Fixing the N+1 Query Problem**
 
 #### **Task:**  
 Below is an inefficient way of retrieving data that causes an **N+1 Query Problem**.
@@ -60,7 +60,7 @@ SELECT name FROM Customers WHERE customer_id = 3;
 - Rewrite it **using a single JOIN query**.
 
 ---
-### **🔹 Exercise 4: Optimizing Aggregate Queries with Indexes**
+### **Exercise 4: Optimizing Aggregate Queries with Indexes**
 
 #### **Scenario:**  
 A database stores **product sales** with the following tables:
@@ -136,7 +136,6 @@ After optimization, the query should:
 ✅ **Run faster with fewer scanned rows**  
 ✅ **Use indexes for improved performance**  
 ✅ **Reduce full table scans**
-
 
 
 ## **📌 Summary: Best Practices**
