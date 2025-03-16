@@ -1,12 +1,14 @@
-# **B+-Tree Operations: Insertions & Deletions**
+# **B+-Tree Operations**
 
-## **📌 Introduction to B+-Trees**
 A **B+-Tree** is a **self-balancing tree** commonly used in databases to organize indexes efficiently. It is optimized for **fast searches, insertions, and deletions** while maintaining a balanced structure.
 
 ### **🔹 Key Properties of a B+-Tree**
 ✔ **Balanced Structure** – All leaf nodes are at the same level.
+
 ✔ **Internal Nodes Store Keys Only** – Actual data is stored in leaf nodes.
+
 ✔ **Leaf Nodes Are Linked** – Supports efficient range queries.
+
 ✔ **Efficient Disk Reads** – Reduces access time for large datasets.
 
 ---
@@ -20,7 +22,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 ```
 
 
-
 ---
 ### **📌 Step 2: Insert 20, 30**
 ```
@@ -28,7 +29,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 (Leaf Node)
 ```
 
-![Step 2: Insert 20, 30](img/image_2.png)
+
 
 📌 **No split needed since the node has space.**
 
@@ -40,7 +41,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]  [20,30,40]  (Leaf Nodes)
 ```
 
-![Step 3: Insert 40](img/image_3.png)
 
 📌 **Leaf node exceeded max keys (3), causing a split.**
 📌 **Middle value (20) moves up to the parent node.**
@@ -53,7 +53,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [40,50,60,70]
 ```
 
-![Step 4: Insert 50, 60, 70](img/image_4.png)
 
 📌 **Further splitting occurs to maintain balance.**
 
@@ -68,7 +67,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [40,50,60]
 ```
 
-![Step 5: Delete 70](img/image_5.png)
 
 📌 **Leaf node still has enough keys, so no merging is required.**
 
@@ -80,7 +78,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [50,60]
 ```
 
-![Step 6: Delete 40](img/image_6.png)
 
 📌 **Internal node key (40) is removed, replaced with successor (50).**
 
@@ -92,7 +89,6 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30,60]
 ```
 
-![Step 7: Delete 50](img/image_7.png)
 
 📌 **Since `50` was a parent node, merging was necessary.**
 📌 **B+-Tree structure remains balanced.**
