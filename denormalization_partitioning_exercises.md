@@ -145,6 +145,15 @@ PARTITION BY RANGE (YEAR(sale_date)) (
 SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
 ```
 
+```
+
+### **Query Partions on Table**
+```sql
+SELECT TABLE_NAME, PARTITION_NAME, TABLE_ROWS, PARTITION_METHOD
+FROM information_schema.partitions
+WHERE TABLE_SCHEMA = DATABASE();
+```
+
 ### **📌 Discussion Questions**
 - How does **partitioning** improve query speed?
 - Why does MySQL **not allow foreign keys** in partitioned tables?
