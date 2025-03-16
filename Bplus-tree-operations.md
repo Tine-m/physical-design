@@ -103,4 +103,5 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 | **Deletion (Internal Node)** | Replace with **successor key** from right subtree. |
 
 💡 **B+-Trees dynamically restructure themselves to maintain efficiency.**
+**[See more about B+-tree algorithms here](Bplus-tree-operations.md)**
 
