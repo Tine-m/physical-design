@@ -82,7 +82,7 @@ After running the above queries, compare the results:
 
 ## **📌 5. Viewing Query Execution Plan in MySQL Workbench**
 
-### **🔹 Graphical Query Plan**
+### **Graphical Query Plan**
 **MySQL Workbench** provides a **graphical execution plan** that makes it easier to read `EXPLAIN` results.
 
 ### **✅ Steps to View the Execution Plan**
@@ -90,7 +90,7 @@ After running the above queries, compare the results:
    ```sql
     SELECT * FROM Sales WHERE region = 'EU' AND sale_date BETWEEN '2023-01-01' AND '2023-12-31';
    ```
-2. **Choose Query --> [Explain Current Statement](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html) **
+2. **Choose Query --> [Explain Current Statement](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html)**
      - This will show the execution plan **graphically**.
 
 3. **Analyze the Graphical Plan**
