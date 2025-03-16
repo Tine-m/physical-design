@@ -2,7 +2,7 @@
 
 A **B+-Tree** is a **self-balancing tree** commonly used in databases to organize indexes efficiently. It is optimized for **fast searches, insertions, and deletions** while maintaining a balanced structure.
 
-### **🔹 Key Properties of a B+-Tree**
+### **Key Properties of a B+-Tree**
 ✔ **Balanced Structure** – All leaf nodes are at the same level.
 
 ✔ **Internal Nodes Store Keys Only** – Actual data is stored in leaf nodes.
@@ -13,7 +13,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 
 ---
 
-# **1️⃣ Visualizing Insertions in a B+-Tree**
+## **1️⃣ Visualizing Insertions in a B+-Tree**
 
 ### **📌 Step 1: Insert 10**
 ```
@@ -58,7 +58,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 
 ---
 
-# **2️⃣ Visualizing Deletions in a B+-Tree**
+## **2️⃣ Visualizing Deletions in a B+-Tree**
 
 ### **📌 Step 5: Delete 70 (No Underflow)**
 ```
@@ -95,7 +95,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 
 ---
 
-# **🔹 Summary of B+-Tree Operations**
+## **Summary of B+-Tree Operations**
 | **Operation** | **What Happens?** |
 |--------------|------------------|
 | **Insertion** | Adds key to leaf node. If full, splits and promotes middle key. |
