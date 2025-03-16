@@ -135,6 +135,7 @@ PARTITION BY RANGE (YEAR(sale_date)) (
     PARTITION p2023 VALUES LESS THAN (2024)
 );
 ```
+You can use these [test data](sales_list_partitioned.csv)
 
 ### **✅ Query Example (Efficient Query on Partitioned Table)**
 ```sql
@@ -147,8 +148,6 @@ SELECT TABLE_NAME, PARTITION_NAME, TABLE_ROWS, PARTITION_METHOD
 FROM information_schema.partitions
 WHERE TABLE_SCHEMA = DATABASE();
 ```
-
-It is possible to see **Query Stats in MySQL Workbench**:[MySQL Workbench Manual](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html). Check query stats for both versions of the Sales table, with and without the partitions.
 
 ### **📌 Discussion Questions**
 - How does **partitioning** improve query speed?
@@ -186,6 +185,11 @@ PARTITION BY LIST COLUMNS (region) (
 ```sql
 SELECT * FROM Sales PARTITION (pEU) WHERE sale_date BETWEEN '2023-01-01' AND '2023-12-31';
 ```
+
+## **📝 Exercise 5: Checking Query Performance with Partitioning**
+
+[query performance](checking_query_performance_partitioning.md)
+
 
 ### **📌 Discussion Questions**
 - What **types of queries** does list partitioning optimize?
