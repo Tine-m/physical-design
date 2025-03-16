@@ -200,4 +200,4 @@ SELECT * FROM Sales PARTITION (pEU) WHERE sale_date BETWEEN '2023-01-01' AND '20
 ---
 ## **📝 Exercise 5: Checking Query Performance with Partitioning**
 
-[query performance](checking_query_performance_partitioning.md)
+[See this guide](checking_query_performance_partitioning.md)
