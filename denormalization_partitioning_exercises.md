@@ -59,7 +59,7 @@ SET total_amount = (
 
 ---
 
-## **📝 Exercise 2: Denormalizing Customer Data in Orders**
+## **Exercise 2: Denormalizing Customer Data in Orders**
 
 ### **🎯 Problem Statement**
 Order processing queries frequently need to fetch **customer information** (e.g., name, email) along with order details. Currently, this requires a **join** between `Customers` and `Orders`.
@@ -101,7 +101,7 @@ SET o.customer_name = c.name, o.customer_email = c.email;
 
 ---
 
-## **📝 Exercise 3: Using Partitioning for Sales Data**
+## **Exercise 3: Using Partitioning for Sales Data**
 
 ### **🎯 Problem Statement**
 The **`Sales`** table has **millions of rows**, and querying data for a single **year** is slow.
@@ -141,9 +141,9 @@ You can use these [test data](sales_partitioned.csv) to insert into the `Sales` 
 ```sql
 SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
 ```
-### **✅ Query Example (Efficient Query on Partitioned Table)**
+### **✅ Query Example Without the Partitioned Table**
 ```sql
-SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
+SELECT * FROM Sales WHERE region_id = 5; --different query result
 ```
 
 ### **Query Partions on Database**
