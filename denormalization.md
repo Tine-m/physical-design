@@ -2,13 +2,11 @@
 Normalization ensures **data integrity**, but it may slow down performance. 
 **Denormalization** **(controlled redundancy)** is sometimes used to speed up queries by storing **precomputed** or **duplicated** data. Denormalization introduces redundancy in a controlled by relaxing the normalization rules. As a rule of thumb, if performance is unsatisfactory,and a table has a low update rate and a very high query rate, denormalization may be an viable option.
 
-## **Denormalization Examples in SQL**
-
-Denormalization is used to improve **query performance** by **reducing the number of joins**, at the cost of some **data redundancy**.
+Denormalization is often used to improve **query performance** by **reducing the number of joins**, at the cost of some **data redundancy**.
 
 ---
 
-## **📌 Example 1: Storing Aggregated Values (Precomputed Totals)**
+## **📌 Example 1: Storing Aggregated Values (precomputed totals)**
 ### **Scenario:** E-commerce system with `Orders` and `OrderDetails`
 ### **Normalized Schema (3NF)**
 ```sql
@@ -29,7 +27,7 @@ CREATE TABLE OrderDetails (
 ```
 📌 **Problem:** Every time we need the total order amount, we must use `JOIN` and `SUM()`, which can be slow.
 
-### **Denormalized Schema (Adding a Redundant `total_amount` Column)**
+### **Denormalized Schema (Adding a redundant `total_amount` column)**
 ```sql
 ALTER TABLE Orders ADD COLUMN total_amount DECIMAL(10,2);
 
@@ -46,7 +44,7 @@ SET total_amount = (
 
 ---
 
-## **📌 Example 2: Reducing Joins (Storing Customer Information in Orders)**
+## **📌 Example 2: Reducing Joins (storing customer information in orders)**
 ### **Scenario:** Order processing system with `Customers` and `Orders`
 ### **Normalized Schema (3NF)**
 ```sql
@@ -66,7 +64,7 @@ CREATE TABLE Orders (
 ```
 📌 **Problem:** Fetching order details along with customer information requires a `JOIN`, which can be slow.
 
-### **Denormalized Schema (Embedding Customer Information in Orders)**
+### **Denormalized Schema (embedding customer information in orders)**
 ```sql
 ALTER TABLE Orders ADD COLUMN customer_name VARCHAR(100);
 ALTER TABLE Orders ADD COLUMN customer_email VARCHAR(100);
@@ -81,7 +79,7 @@ SET o.customer_name = c.name, o.customer_email = c.email;
 
 ---
 
-## **📌 Example 3: Precomputed Relationships (Flattening Many-to-Many Tables)**
+## **📌 Example 3: Precomputed Relationships (flattening many-to-many tables)**
 ### **Scenario:** A `Students` table and a `Courses` table linked via `Enrollments`
 ### **Normalized Schema (3NF)**
 ```sql
