@@ -42,8 +42,8 @@ This step translates the **logical model** into a **DBMS-specific schema** and o
 
 ---
 
-# **Translating Logical Data Model for the Target DBMS**
-### **Base Relations**
+## **Translating Logical Data Model for the Target DBMS**
+###**Base Relations**
 Before creating tables, check **DBMS-specific features**:
 - **Primary, foreign, and alternate keys** – Ensuring data integrity.
 - **NOT NULL constraints** – Enforcing required fields.
@@ -52,7 +52,7 @@ Before creating tables, check **DBMS-specific features**:
 
 ---
 
-## **Managing Derived Data**
+###**Managing Derived Data**
 **Derived attributes** (e.g., `total_sales`, `average_rating`) can either be:
 1. **Stored in the database** (faster retrieval, but requires maintenance).
 2. **Calculated on demand** (less storage, but higher query cost).
@@ -61,7 +61,7 @@ Before creating tables, check **DBMS-specific features**:
 
 ---
 
-## **Enforcing General Constraints**
+###**Enforcing General Constraints**
 Not all business rules can be enforced using simple constraints. Some may require:
 - **CHECK constraints** (if supported by the DBMS).
 - **Triggers** (to enforce complex business rules).
@@ -79,8 +79,8 @@ CHECK (NOT EXISTS (
 
 ---
 
-# **Designing File Organizations and Indexes**
-## **File Organizations**
+## **Designing File Organizations and Indexes**
+### **File Organizations**
 The choice of **file organization** determines how data is **physically stored**. Options include:
 - **Heap (unordered)** – Fast inserts, but slow searches.
 - **Hash** – Efficient for **point lookups**, poor for range queries.
@@ -92,8 +92,8 @@ The choice of **file organization** determines how data is **physically stored**
 
 ---
 
-# **Indexes: Improving Query Performance**
-## **What Are Indexes?**
+## **Indexes: Improving Query Performance**
+### **What Are Indexes?**
 Indexes are **data structures** that speed up searches by reducing the number of disk accesses required. Instead of scanning an entire table, an index allows the DBMS to quickly locate the required rows.
 
 ### **Types of Indexes in MySQL**
@@ -123,7 +123,7 @@ CREATE INDEX idx_email_rank ON Players(email, ranking);
 💡 **Choosing the right index improves performance, but excessive indexes increase storage cost and slow down updates.**
 
 
-# **Security and access control** 
+## **Security and access control** 
 Design the security measures for the database. Relational DBMSs typically provide facilities for:
 - System security
 - Data security
@@ -132,7 +132,7 @@ Design the security measures for the database. Relational DBMSs typically provid
 **Data security** covers access to database objects such as tables and views (we use GRANT and REVOKE statements to set up priviliges).
 
 
-# **Storage considerations**
+## **Storage considerations**
 It is a whole topic in itself to plan database capacity and not a mandatory part of the course. 
 
 You may look at the following links to get high level feeling for the extent of the topic:
