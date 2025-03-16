@@ -46,7 +46,7 @@ EXPLAIN SELECT * FROM Orders WHERE customer_id = 10;
 ## **3️⃣ Query Execution Plan – How DBMS Decides to Fetch Data**
 DBMS **chooses the fastest way** to get data using **indexes, sorting, and joins**.
 
-### **🔹 How to Analyze Execution Plans**
+### **How to Analyze Execution Plans**
 Use `EXPLAIN` to see **how MySQL will execute a query**.
 
 🔍 **Example: Execution Plan**
@@ -79,7 +79,7 @@ EXPLAIN ANALYZE SELECT * FROM Orders WHERE order_date > '2023-01-01';
 ## **4️⃣ Join Processing & Indexing**
 Joins are **powerful but slow** if not optimized properly.
 
-### **🔹 Types of Join Strategies**
+### **Types of Join Strategies**
 
 #### **1. Nested Loop Join (Default)**
 - MySQL **scans the first table** row by row and **searches for matches** in the second table.
@@ -117,14 +117,6 @@ JOIN Orders o ON c.customer_id = o.customer_id;
 - This **avoids multiple scans**.
 
 📌 **MySQL does NOT support hash joins natively**, but other databases (PostgreSQL, SQL Server) do.
-
----
-
-#### **4. Block Nested Loop Join (BNL)**
-- Similar to **Nested Loop Join**, but MySQL **loads multiple rows at once** instead of processing row by row.
-- **More efficient when no index exists**.
-
-❌ **Still slow compared to index joins**, but faster than a simple **nested loop join**.
 
 ---
 
