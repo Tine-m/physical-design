@@ -1,37 +1,37 @@
-# **📌 Understanding Query Processing in MySQL**
+# **📌 Understanding Query Processing**
 
-This guide explains **how MySQL processes queries**, optimizes execution, and how developers can **improve performance**.
+This guide explains **how a DBMS processes queries**, optimizes execution, and how developers can **improve performance**.
 
 ---
 
-## **1️⃣ Query Lifecycle – How MySQL Processes a Query**
-When you run an SQL query, MySQL goes through **several steps** before returning results.
+## **1️⃣ Query Lifecycle – Query Processing**
+When you run an SQL query, DBMS goes through **several steps** before returning results.
 
 ### **🔹 Step-by-Step Process**
 1. **Client Request** – The query is sent from the application (e.g., Java, PHP).
-2. **Query Parsing** – MySQL **checks syntax** and **converts the query into a parse tree**.
-3. **Query Optimization** – MySQL **chooses the best execution plan**.
-4. **Query Execution** – MySQL **fetches data from tables** (using indexes if possible).
+2. **Query Parsing** – DBMS **checks syntax** and **converts the query into a parse tree**.
+3. **Query Optimization** – DBMS **chooses the best execution plan**.
+4. **Query Execution** – DBMS **fetches data from tables** (using indexes if possible).
 5. **Result Processing** – Data is formatted and sent **back to the client**.
 
 🔍 **Example Query:**
 ```sql
 SELECT * FROM Orders WHERE order_date > '2023-01-01';
 ```
-✅ MySQL **parses, optimizes, executes, and returns results**.
+✅ DBMS **parses, optimizes, executes, and returns results**.
 
 ---
 
 ## **2️⃣ Query Parsing & Optimization**
-Before executing, MySQL **analyzes and rewrites** queries to run faster.
+Before executing, DBMS **analyzes and rewrites** queries to run faster.
 
 ### **🔹 What Happens During Parsing?**
-- MySQL **checks syntax** (`SELECT` must be before `FROM`).
-- It **validates table and column names**.
-- Creates a **parse tree** (internal representation).
+- **Syntax check** (`SELECT` must be before `FROM`).
+- **Validate table and column names**.
+- Create a **parse tree** (internal representation).
 
 ### **🔹 What Happens During Optimization?**
-- **Rewrites inefficient queries** (`OR` → `UNION` for performance).
+- **Rewrites inefficient queries** (e.g. `OR` → `UNION` for performance).
 - **Chooses the best indexes**.
 - **Reorders joins** for efficiency.
 
@@ -39,12 +39,12 @@ Before executing, MySQL **analyzes and rewrites** queries to run faster.
 ```sql
 EXPLAIN SELECT * FROM Orders WHERE customer_id = 10;
 ```
-✅ MySQL **automatically picks the best index** for `customer_id`.
+✅ DBMS **automatically picks the best index** for `customer_id`.
 
 ---
 
-## **3️⃣ Query Execution Plan – How MySQL Decides to Fetch Data**
-MySQL **chooses the fastest way** to get data using **indexes, sorting, and joins**.
+## **3️⃣ Query Execution Plan – How DBMS Decides to Fetch Data**
+DBMS **chooses the fastest way** to get data using **indexes, sorting, and joins**.
 
 ### **🔹 How to Analyze Execution Plans**
 Use `EXPLAIN` to see **how MySQL will execute a query**.
