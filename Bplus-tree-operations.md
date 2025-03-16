@@ -19,7 +19,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 (Leaf Node)
 ```
 
-![Step 1: Insert 10](image_1.png)
+![Step 1: Insert 10](img/image_1.png)
 
 ---
 ### **📌 Step 2: Insert 20, 30**
@@ -28,7 +28,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 (Leaf Node)
 ```
 
-![Step 2: Insert 20, 30](image_2.png)
+![Step 2: Insert 20, 30](img/image_2.png)
 
 📌 **No split needed since the node has space.**
 
@@ -40,7 +40,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]  [20,30,40]  (Leaf Nodes)
 ```
 
-![Step 3: Insert 40](image_3.png)
+![Step 3: Insert 40](img/image_3.png)
 
 📌 **Leaf node exceeded max keys (3), causing a split.**
 📌 **Middle value (20) moves up to the parent node.**
@@ -53,7 +53,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [40,50,60,70]
 ```
 
-![Step 4: Insert 50, 60, 70](image_4.png)
+![Step 4: Insert 50, 60, 70](img/image_4.png)
 
 📌 **Further splitting occurs to maintain balance.**
 
@@ -68,7 +68,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [40,50,60]
 ```
 
-![Step 5: Delete 70](image_5.png)
+![Step 5: Delete 70](img/image_5.png)
 
 📌 **Leaf node still has enough keys, so no merging is required.**
 
@@ -80,7 +80,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30]   [50,60]
 ```
 
-![Step 6: Delete 40](image_6.png)
+![Step 6: Delete 40](img/image_6.png)
 
 📌 **Internal node key (40) is removed, replaced with successor (50).**
 
@@ -92,7 +92,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
  [10]   [20,30,60]
 ```
 
-![Step 7: Delete 50](image_7.png)
+![Step 7: Delete 50](img/image_7.png)
 
 📌 **Since `50` was a parent node, merging was necessary.**
 📌 **B+-Tree structure remains balanced.**
@@ -108,6 +108,3 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 
 💡 **B+-Trees dynamically restructure themselves to maintain efficiency.**
 
----
-
-Would you like further **animations or interactive visualizations** to explore more B+-Tree concepts? 🚀😊
