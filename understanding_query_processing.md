@@ -120,6 +120,13 @@ JOIN Orders o ON c.customer_id = o.customer_id;
 
 ---
 
+#### **3. Comparing Joins vs. Subqueries**
+Many developers assume **subqueries** are worse than **joins**, but this depends on the **use case, table size, and indexes**.
+
+[Let's take a look at Joins vs. Subqueries](comparing_joins_vs_subqueries.md)
+
+---
+
 ## **5️⃣ Query Caching & Optimization**
 Query caching **stores results**, so repeated queries **don’t need to be recalculated**.
 
