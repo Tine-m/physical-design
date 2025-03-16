@@ -1,4 +1,4 @@
-# **🔍 Checking Query Performance with Partitioning in MySQL**
+# **🔍 Checking Query Performance with Partitioning**
 
 This guide explains how to use **`EXPLAIN`** and **`EXPLAIN ANALYZE`** to check query performance improvements when using **partitioning**.
 
