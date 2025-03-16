@@ -121,7 +121,7 @@ SET enrolled_courses = (
 
 ---
 
-## **🔹 When to Use Denormalization?**
+## **When to Use Denormalization?**
 ✅ When **joins are causing performance issues**.  
 ✅ When **read-heavy queries need optimization**.  
 ✅ When **data updates are rare but reads are frequent**.  
