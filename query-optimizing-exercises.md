@@ -60,6 +60,84 @@ SELECT name FROM Customers WHERE customer_id = 3;
 - Rewrite it **using a single JOIN query**.
 
 ---
+### **🔹 Exercise 4: Optimizing Aggregate Queries with Indexes**
+
+#### **Scenario:**  
+A database stores **product sales** with the following tables:
+
+**Products Table**
+```sql
+CREATE TABLE Products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+);
+```
+
+**Sales Table**
+```sql
+CREATE TABLE Sales (
+    sale_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    sale_date DATE NOT NULL,
+    total_amount DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+```
+
+**❌ Problem: Slow Aggregate Query**
+The following query **aggregates sales by category**, but it runs slowly on large datasets.
+
+```sql
+SELECT p.category, SUM(s.total_amount) AS total_sales
+FROM Sales s
+JOIN Products p ON s.product_id = p.product_id
+GROUP BY p.category;
+```
+
+**✅ Tasks**
+
+**1️⃣ Analyze Query Performance**
+- Use `EXPLAIN` to **check execution plan**:
+  ```sql
+  EXPLAIN SELECT p.category, SUM(s.total_amount) AS total_sales
+  FROM Sales s
+  JOIN Products p ON s.product_id = p.product_id
+  GROUP BY p.category;
+  ```
+- Identify **how many rows are scanned** and **whether indexes are used**.
+
+**2️⃣ Identify Missing Indexes**
+- Check if an **index on `product_id`** exists in the `Sales` table.
+- Consider **creating an index** on `category` for faster `GROUP BY` operations.
+
+**3️⃣ Optimize the Query Using Indexes**
+- Add an **index to improve performance**:
+  ```sql
+  CREATE INDEX idx_product_id ON Sales(product_id);
+  CREATE INDEX idx_category ON Products(category);
+  ```
+- Rerun the query and **compare execution times**.
+
+**4️⃣ Bonus: Use a Covering Index**
+- Create a **covering index** for the query:
+  ```sql
+  CREATE INDEX idx_sales_optimized ON Sales(product_id, total_amount);
+  ```
+- Test if it **further improves performance**.
+
+---
+
+## **🚀 Expected Outcome**
+After optimization, the query should:
+
+✅ **Run faster with fewer scanned rows**  
+✅ **Use indexes for improved performance**  
+✅ **Reduce full table scans**
+
+
 
 ## **📌 Summary: Best Practices**
 
@@ -69,6 +147,3 @@ SELECT name FROM Customers WHERE customer_id = 3;
 | ❌ **Subquery** | **Slow (if correlated)** 🐢 | Only when aggregating unique results |
 | ❌ **N+1 Problem** | **Very Slow** 🔥 | Fix it with **joins** or **batch queries** |
 
----
-
-Would you like additional **query optimization exercises** with more complex data structures? 🚀😊
