@@ -59,7 +59,7 @@ SET total_amount = (
 
 ---
 
-## **📝 Exercise 2: Denormalizing Customer Data in Orders**
+## **Exercise 2: Denormalizing Customer Data in Orders**
 
 ### **🎯 Problem Statement**
 Order processing queries frequently need to fetch **customer information** (e.g., name, email) along with order details. Currently, this requires a **join** between `Customers` and `Orders`.
@@ -101,7 +101,7 @@ SET o.customer_name = c.name, o.customer_email = c.email;
 
 ---
 
-## **📝 Exercise 3: Using Partitioning for Sales Data**
+## **Exercise 3: Using Partitioning for Sales Data**
 
 ### **🎯 Problem Statement**
 The **`Sales`** table has **millions of rows**, and querying data for a single **year** is slow.
@@ -141,12 +141,12 @@ You can use these [test data](sales_partitioned.csv) to insert into the `Sales` 
 ```sql
 SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
 ```
-### **✅ Query Example (Efficient Query on Partitioned Table)**
+### **✅ Query Example Without the Partitioned Table**
 ```sql
-SELECT * FROM Sales PARTITION (p2022) WHERE region_id = 5;
+SELECT * FROM Sales WHERE region_id = 5; --different query result
 ```
 
-### **Query Partions on Database**
+### **✅ Show Partitions on Database**
 ```sql
 SELECT TABLE_NAME, PARTITION_NAME, TABLE_ROWS, PARTITION_METHOD
 FROM information_schema.partitions
@@ -160,7 +160,7 @@ WHERE TABLE_SCHEMA = DATABASE();
 
 ---
 
-## **📝 Exercise 4: Using List Partitioning for Regional Data**
+## **Exercise 4: Using List Partitioning for Regional Data**
 
 ### **🎯 Problem Statement**
 The company operates in **multiple regions** (EU, US, Asia). Queries on **a single region’s sales** are slow because **all data is stored in one table**.
@@ -192,12 +192,12 @@ You can use these [test data](sales_list_partitioned.csv) to insert into the `Sa
 SELECT * FROM Sales PARTITION (pEU) WHERE sale_date BETWEEN '2023-01-01' AND '2023-12-31';
 ```
 
-## **📝 Exercise 5: Checking Query Performance with Partitioning**
-
-[query performance](checking_query_performance_partitioning.md)
-
-
 ### **📌 Discussion Questions**
 - What **types of queries** does list partitioning optimize?
 - What if a **new region** needs to be added?
 - How does **list partitioning compare to range partitioning**?
+
+---
+## **📝 Exercise 5: Checking Query Performance with Partitioning**
+
+[See this guide](checking_query_performance_partitioning.md)

@@ -1,6 +1,18 @@
 # **🔍 Checking Query Performance with Partitioning**
 
 This guide explains how to use **`EXPLAIN`** and **`EXPLAIN ANALYZE`** to check query performance improvements when using **partitioning**.
+# Difference Between Explain And Explain Analyze
+
+The `EXPLAIN` statement allows you to gain some insight into the performance of a query. You may hear `EXPLAIN` and `EXPLAIN ANALYZE` referred to
+interchangeably. Though they can both be used to explore how a query will perform, it's important to know a key difference. `EXPLAIN ANALYZE`
+executes the query, `EXPLAIN` does not.
+
+For `SELECT` queries, the distinction may not feel that important. For `INSERT`, `UPDATE`, and `DELETE`, you'll want to be clear about which one
+you are using.
+
+With `EXPLAIN`, you get cost estimates of the `insert` statement.
+
+With `EXPLAIN ANALYZE`, you get estimates and actual numbers. You also get a row inserted in the table.
 
 ---
 
@@ -25,7 +37,7 @@ Now, compare query execution **with and without partitioning**.
 
 ---
 
-## **📌 2. Running `EXPLAIN` Without Partitioning**
+## **📌 2. Running `EXPLAIN ANALYZE`**
 This query searches sales data **without specifying a partition**:
 
 ```sql
@@ -41,7 +53,7 @@ AND sale_date BETWEEN '2023-01-01' AND '2023-12-31';
 
 ---
 
-## **📌 3. Running `EXPLAIN` With Partition Selection**
+## **📌 3. Running `EXPLAIN ANALYZE` With Partition Selection**
 Now, run the query by **targeting a specific partition**:
 
 ```sql
@@ -70,7 +82,7 @@ After running the above queries, compare the results:
 
 ## **📌 5. Viewing Query Execution Plan in MySQL Workbench**
 
-### **🔹 Graphical Query Plan**
+### **Graphical Query Plan**
 **MySQL Workbench** provides a **graphical execution plan** that makes it easier to read `EXPLAIN` results.
 
 ### **✅ Steps to View the Execution Plan**
@@ -78,7 +90,7 @@ After running the above queries, compare the results:
    ```sql
     SELECT * FROM Sales WHERE region = 'EU' AND sale_date BETWEEN '2023-01-01' AND '2023-12-31';
    ```
-2. **Choose Query --> [Explain Current Statement](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html) **
+2. **Choose Query --> [Explain Current Statement](https://dev.mysql.com/doc/workbench/en/wb-performance-query-statistics.html)**
      - This will show the execution plan **graphically**.
 
 3. **Analyze the Graphical Plan**
