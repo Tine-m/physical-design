@@ -1,6 +1,6 @@
 # **B+-Tree Operations**
 
-A **B+-Tree** is a **self-balancing tree** commonly used in databases to organize indexes efficiently. It is optimized for **fast searches, insertions, and deletions** while maintaining a balanced structure.
+A **B+-Tree** is a **self-balancing tree** commonly used in databases to organize indexes efficiently. It is optimized for **fast searches, insertions, and deletions** while maintaining a balanced structure. 
 
 ### **Key Properties of a B+-Tree**
 ✔ **Balanced Structure** – All leaf nodes are at the same level.
