@@ -1,8 +1,8 @@
 # **📌 Comparing Joins vs. Subqueries**
 
 ## **1️⃣ Joins vs. Subqueries: Which is Better?**
-✅ **Joins**: Usually faster because MySQL **optimizes joins better** than correlated subqueries.  
-❌ **Subqueries**: Can be **slower**, especially when they run multiple times for each row in the outer query.
+✅ **Joins**: Usually faster because MySQL **optimizes joins better** than [correlated subqueries](https://en.wikipedia.org/wiki/Correlated_subquery).  
+❌ **Subqueries**: Can be **slower**, especially when they run multiple times for each row in the outer query (like a dobule for loop).
 
 ---
 
