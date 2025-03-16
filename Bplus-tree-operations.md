@@ -13,7 +13,7 @@ A **B+-Tree** is a **self-balancing tree** commonly used in databases to organiz
 
 ---
 
-## **1️⃣ Visualizing Insertions in a B+-Tree**
+## **1️⃣ Visualizing Insertions in a B+-Tree (of order 3)**
 
 ### **📌 Step 1: Insert 10**
 ```
