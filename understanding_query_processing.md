@@ -125,7 +125,7 @@ Query caching **stores results**, so repeated queries **don’t need to be recal
 
 ### **🔹 MySQL Query Cache (Deprecated)**
 - **MySQL 5.7 and earlier** supported query caching.
-- **In MySQL 8+, caching must be done in the application (e.g., Redis, Memcached).**
+- **In MySQL 8+, caching must be done in the application (e.g., Redis, Memcached).** You will learn about Redis in **Database flow 2**.
 
 ### **🔹 Using Prepared Statements for Optimization**
 Prepared statements **improve performance** by reusing execution plans.
@@ -145,7 +145,7 @@ To find slow queries, **profile execution time** and **monitor performance**.
 
 ### **🔹 Using `SHOW PROFILES` to Track Queries**
 ```sql
-SET profiling = 1;
+SET profiling = 1; --deprecated
 
 SELECT * FROM Orders WHERE order_date > '2023-01-01';
 
