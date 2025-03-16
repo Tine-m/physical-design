@@ -1,9 +1,5 @@
 # **📌 Exercises: Practicing Denormalization and Partitioning**
 
-These exercises will help students understand when and how to **denormalize a database** and when **partitioning** can improve performance.
-
----
-
 ## **📌 Scenario: Global Online Store**
 
 You are designing a **database for an e-commerce platform** that handles **millions of transactions per month** across different regions.
