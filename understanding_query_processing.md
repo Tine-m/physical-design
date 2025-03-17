@@ -8,10 +8,17 @@ This guide explains **how a DBMS processes queries**, optimizes execution, and h
 When you run an SQL query, DBMS goes through **several steps** before returning results.
 
 ### **🔹 Step-by-Step Process**
-1. **Client Request** – The query is sent from the application (e.g., Java, PHP).
+1. **Client Request** – The query is sent from the application.
 2. **Query Parsing** – DBMS **checks syntax** and **converts the query into a parse tree**.
-3. **Query Optimization** – DBMS **chooses the best execution plan**.
+3. **Query Optimization** – DBMS **chooses the best execution plan**. 
+An SQL query optimizer can be written in many ways. 
+Its optimization also depends on how the data is stored in the file organization. 
+A Query can also have different corresponding relational algebra expressions.
 4. **Query Execution** – DBMS **fetches data from tables** (using indexes if possible).
+A systematic step-by-step execution of primitive operations for fetching database data is called a query evaluation plan. 
+Different evaluation plans for a particular query have different query costs. 
+The cost may include the number of disk accesses, CPU time for executing the query, 
+and communication time in the case of distributed databases.
 5. **Result Processing** – Data is formatted and sent **back to the client**.
 
 🔍 **Example Query:**
@@ -20,7 +27,7 @@ SELECT * FROM Orders WHERE order_date > '2023-01-01';
 ```
 ✅ DBMS **parses, optimizes, executes, and returns results**.
 
-![Illustration](x.png)
+![Steps in query processing](img/query.png)
 
 ---
 
