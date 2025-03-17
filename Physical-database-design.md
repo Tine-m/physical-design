@@ -126,6 +126,15 @@ Although it can be tempting to create an indexes for every possible column used 
 
 Indexes are less important for queries on small tables, or big tables where report queries process most or all of the rows. When a query needs to access most of the rows, reading sequentially is faster than working through an index. Sequential reads minimize disk seeks, even if not all the rows are needed for the query. 
 
+**Hints about indexes**
+- No index on small tables (everything can stay in memory))
+- Always index on PK  
+- Index on FKs used frequently
+- Index on attributes used in queries and sorting (selection criteria, join kriteria, ORDER BY, GROUP BY and DISTINCT…)
+- No  index on attributtes which are frequently updated 
+- No index on long text strings 
+- Index can cover multiple columnes
+
 💡 **Choosing the right index improves performance, but excessive indexes increase storage cost and slow down updates.**
 
 ---
