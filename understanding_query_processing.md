@@ -20,6 +20,8 @@ SELECT * FROM Orders WHERE order_date > '2023-01-01';
 ```
 ✅ DBMS **parses, optimizes, executes, and returns results**.
 
+![Illustration](x.png)
+
 ---
 
 ## **2️⃣ Query Parsing & Optimization**
